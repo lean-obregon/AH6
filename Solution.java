@@ -13,23 +13,24 @@ class Node<T> {
 }
 
 class Solution {
-  public static List<String> linkedListValues(Node<String> head) {
-    // todo
-    return;
+  public static Node<String> linkedListValues(Node<String> head) {
+    while (head != null) {
+      head.next = new Node<>(head.val);
+    }
+    return head;
   }
 
-  public static void main() {
-    Node<String> a = new Node<>("a");
-    Node<String> b = new Node<>("b");
-    Node<String> c = new Node<>("c");
-    Node<String> d = new Node<>("d");
-    a.next = b;
-    b.next = c;
-    c.next = d;
+  public static void main(String[] args) {
+    Node<String> one = new Node<>("1");
+    Node<String> two = new Node<>("2");
+    Node<String> three = new Node<>("3");
+    Node<String> four = new Node<>("4");
+    Node<String> five = new Node<>("5");
+    one.next = two;
+    two.next = three;
+    three.next = four;
+    four.next = five;
 
-    // a -> b -> c -> d
-
-    Solution.linkedListValues(a); 
-    // -> [ "a", "b", "c", "d" ]
+    Solution.linkedListValues(one);
   }
 }
